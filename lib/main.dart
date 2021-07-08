@@ -12,23 +12,30 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
   void _answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     var questions = [
-      {"11": "111"},
-      {"11": "111"},
-      {"11": "111"},
-      "22",
-      "33"
+      {
+        "questionText": "What\'s your favorite color?",
+        "answers": ['Black', "Red", "Blue", "Green"],
+      },
+      {
+        "questionText": "What\'s your favorite animal?",
+        "answers": ['Rabbit', "Snake", "Elephant", "Lion"],
+      },
+      {
+        "questionText": "What\'s your favorite instructure?",
+        "answers": ['Rabbit', "Snake", "Elephant", "Lion"],
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -37,7 +44,9 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(questions[questionIndex]),
+            Question(
+              questions[_questionIndex]['questionText'],
+            ),
             Answer(_answerQuestion),
             Answer(_answerQuestion),
           ],
