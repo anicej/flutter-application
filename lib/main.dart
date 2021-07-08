@@ -43,9 +43,7 @@ class MyAppState extends State<MyApp> {
           title: Text("This is my first App"),
         ),
         body: Column(children: [
-          Question(
-            questions[_questionIndex]['questionText'],
-          ),
+          Question(["_questionIndex"][3]),
           Answer(_answerQuestion),
           Answer(_answerQuestion),
         ]),
